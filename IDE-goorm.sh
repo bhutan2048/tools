@@ -28,13 +28,4 @@ echo "RDP IP Address :" && curl --silent --show-error ipconfig.io
 echo "Username : ubuntu"
 echo "Password : abc123!!!"
 echo Go to settings add port 3389
-echo "===================================="
-b='\033[1m'
-r='\E[31m'
-g='\E[32m'
-c='\E[36m'
-endc='\E[0m'
-enda='\033[0m'
-# Branding
-          
-$endc$enda""";
+echo "Done======================"
