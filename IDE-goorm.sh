@@ -6,7 +6,7 @@ sudo usermod -aG sudo,adm ubuntu
 sudo apt install screen
 sudo apt update
 clear
-screen -R a2nk
+screen -R ubuntu
 echo "===================================="
 echo "Install XFCE"
 echo "Choose Keyboard 31 then 1"
