@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+  <div>
+    <label>Number là số có 9 chữ số ghi trên thẻ Visa để trong tủ sắt</label>
+  </div>
+  <br>
+  <div>
+    <label>Number</label>
+    <input id="number" type="number">
+  </div>
+<br>
+  <div>
+    <label>Origin seeds</label>
+    <input id="origin" type="text">
+  </div>
+<br>
+  <div>
+    <label>Encrypted seeds</label>
+    <input id="change" type="text">
+  </div>
+
+  <br>
+<button onclick="myFunction()">Run</button>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+  function isInDesiredForm(str) {
+    return /^\+?(0|[1-9]\d*)$/.test(str);
+  }
+  function myFunction() {
+    let number = document.getElementById("number").value
+    //console.log(number)
+    if (!isInDesiredForm(number))
+      alert("Plz enter valid number")
+    let origin = document.getElementById("origin").value
+    let change = document.getElementById("change").value
+    //console.log(origin)
+    if (origin == '' && change =='' || origin != '' && change !='') {
+      document.getElementById("origin").setAttribute('value', '')
+      document.getElementById("change").setAttribute('value', '')
+      alert("Only enter 1 field")
+
+    } else if (origin != '') {
+      let t = origin.split(" ")
+      if (t.length < 12)
+        alert("Plz enter valid seed phrase")
+      else {
+        let newSeeds = changeSeeds(origin, number, true)
+        console.log('Change: ' + newSeeds)
+        document.getElementById("change").setAttribute('value', newSeeds)
+      }
+    } else {
+      let t = change.split(" ")
+      if (t.length < 12)
+        alert("Plz enter valid seed phrase")
+      else {
+        let newSeeds = changeSeeds(change, number, false)
+        console.log('Origin: ' + newSeeds)
+        document.getElementById("origin").setAttribute('value', newSeeds)
+      }      
+    }
+  }
+
+  function changeSeeds(seeds, number, isOrigin){
+    let t = seeds.split(" ")
+    let t1 = t.slice()
+    
+      for (let index = 0; index < number.length; index++) {
+        if(isOrigin) {
+          t1[index] = t[number[index]-1]
+        } else {
+          t1[number[index]-1] = t[index]
+        }
+      }
+    
+    return t1.join(' ')
+  }
+</script>
+
+</body>
+</html>
